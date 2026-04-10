@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Tic Tac Toe 🤖</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 🔤 XOXO Background -->
+    <div class="xo-bg">
+        <span>X</span><span>O</span><span>X</span><span>O</span>
+        <span>O</span><span>X</span><span>O</span><span>X</span>
+    </div>
+
+    <!-- ✨ Particles -->
+    <div class="particles">
+        <span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+    </div>
+
+    <main>
+        <button id="theme-toggle">🌙</button>
+        <h1>⚡ Neon Tic Tac Toe 🤖</h1>
+        <h2 id="msg"></h2>
+
+        <div class="container">
+            <div class="game">
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+            </div>
+        </div>
+
+        <button id="reset-btn">Restart Game</button>
+    </main>
+
+    <!-- 🔊 Sounds -->
+    <audio id="clickSound" src="https://www.soundjay.com/button/beep-07.wav"></audio>
+    <audio id="winSound" src="https://www.soundjay.com/human/applause-8.wav"></audio>
+    <audio id="drawSound" src="https://www.soundjay.com/button/beep-10.wav"></audio>
+
+    <script src="app.js"></script>
+</body>
+</html>
