@@ -1,0 +1,219 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* 🌙 Default Theme Variables */
+:root {
+    --bg-color: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #00c6ff);
+    --text-color: white;
+    --box-bg: rgba(255,255,255,0.9);
+    --neon: var(--neon);
+}
+
+/* ☀️ Light Mode */
+.light-mode {
+    --bg-color: linear-gradient(-45deg, #f5f7fa, #c3cfe2);
+    --text-color: #111;
+    --box-bg: #ffffff;
+    --neon: var(--neon);
+}
+
+/* 🌈 Animated Background */
+body {
+    background: var(--bg-color);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+    color: var(--text-color);
+    text-align: center;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* 🔤 XOXO Background */
+.xo-bg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    overflow: hidden;
+}
+
+.xo-bg span {
+    position: absolute;
+    font-size: 5rem;
+    font-weight: bold;
+    opacity: 0.1;
+    animation: floatXO 12s linear infinite;
+}
+
+/* Neon colors */
+.xo-bg span:nth-child(odd){
+    color: var(--neon);
+    text-shadow: 0 0 15px var(--neon);
+}
+
+.xo-bg span:nth-child(even){
+    color: #ff00aa;
+    text-shadow: 0 0 15px #ff00aa;
+}
+
+/* Positions */
+.xo-bg span:nth-child(1){ left:10%; animation-duration:12s; }
+.xo-bg span:nth-child(2){ left:20%; animation-duration:15s; }
+.xo-bg span:nth-child(3){ left:30%; animation-duration:10s; }
+.xo-bg span:nth-child(4){ left:50%; animation-duration:18s; }
+.xo-bg span:nth-child(5){ left:65%; animation-duration:14s; }
+.xo-bg span:nth-child(6){ left:75%; animation-duration:11s; }
+.xo-bg span:nth-child(7){ left:85%; animation-duration:16s; }
+.xo-bg span:nth-child(8){ left:95%; animation-duration:13s; }
+
+@keyframes floatXO {
+    0% { transform: translateY(100vh) rotate(0deg); opacity:0; }
+    50% { opacity:0.2; }
+    100% { transform: translateY(-10vh) rotate(360deg); opacity:0; }
+}
+
+/* ✨ Particles */
+.particles {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.particles span {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 50%;
+    animation: float 10s linear infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(100vh); opacity:0; }
+    50% { opacity:1; }
+    100% { transform: translateY(-10vh); opacity:0; }
+}
+
+/* Layout */
+main{
+    padding: 20px;
+}
+
+#msg{
+    margin: 10px;
+    font-size: 1.5rem;
+    color: var(--neon);
+    text-shadow: 0 0 10px var(--neon);
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+}
+
+/* 🧊 Glass Board */
+.game{
+    width: 90vw;
+    max-width: 400px;
+    aspect-ratio: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    backdrop-filter: blur(12px);
+    background: rgba(255,255,255,0.1);
+    border-radius: 20px;
+    padding: 10px;
+}
+
+/* 🔥 Neon Boxes */
+.box{
+    flex: 1 1 30%;
+    aspect-ratio: 1;
+    border-radius: 12px;
+    border: none;
+    font-size: 8vmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: var(--box-bg);
+    color: black;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.box:hover{
+    transform: scale(1.1);
+    box-shadow: 0 0 20px var(--neon);
+}
+
+/* 🎮 Reset Button */
+#reset-btn{
+    margin-top: 15px;
+    padding: 12px 20px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+
+    background: black;
+    color: var(--neon);
+}
+
+/* Dark hover */
+#reset-btn:hover{
+    box-shadow: 0 0 15px var(--neon),
+                0 0 30px var(--neon);
+    transform: scale(1.05);
+}
+
+/* Light mode button */
+.light-mode #reset-btn{
+    background: white;
+    color: var(--neon)
+    border: 2px solid var(--neon);
+}
+
+/* Light hover */
+.light-mode #reset-btn:hover{
+    background: var(--neon);
+    color: white;
+    box-shadow: 0 0 10px var(--neon),
+                0 0 20px var(--neon);
+}
+
+/* Click effect */
+#reset-btn:active{
+    transform: scale(0.95);
+}
+
+/* 🌙 Theme Toggle Button */
+#theme-toggle{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 8px 12px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    background: black;
+    color: white;
+}
+
+/* 📱 Mobile */
+@media (max-width:500px){
+    .game{ max-width:300px; }
+    .box{ font-size:10vmin; }
+}
